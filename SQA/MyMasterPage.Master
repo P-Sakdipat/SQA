@@ -1,0 +1,296 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MyMasterPage.master.vb" Inherits="SQA.MyMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="robots" content="noindex"/>
+    <meta name="googlebot" content="noindex"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>SQA</title>
+
+    <%--PP_S--%>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <%--PPP_E--%>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+     <%--PP_S--%>
+    <style>
+
+        body {
+            background: #fff;
+            font-family: 'Kanit',Tahoma,'Lato', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 22px;
+            color: #000;
+        }
+
+       @media print {
+           html, body {
+               display:none;
+               visibility:hidden;
+           }
+       }
+
+       table a:link {
+         color: black;
+       }
+
+       table a:visited {
+         color: black;
+       }
+
+       table a:hover {
+         color: black;
+       }
+
+       table a:active {
+         color: black;
+       }
+
+       table tr {
+           font-family:'Kanit',Tahoma,'Trebuchet MS';
+           color: black;
+           font-size:17px;        
+
+       }
+
+        .hero2 {
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: -9;
+          margin-top: 10px;
+          width: 70%;
+        }
+
+        .X1 {
+            font-family:'Kanit',Tahoma,'Trebuchet MS';
+            font-size:17px;
+            color:black;
+            text-align:right;  
+        }
+
+        .X1 a {
+            text-decoration: none;
+        }
+
+        .X1 a:link a:hover {
+            color:black;
+        }
+
+        .container2{
+          width: 100%;
+          padding-right: 20px;
+          padding-left: 20px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        table.footable thead tr {
+            background-color: #dce9f9;
+            background-image: linear-gradient(#ebf3fc, #dce9f9);
+
+            background: #dce9f9!important;
+            position: sticky!important;
+            top: 0;
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
+            font-family: 'Kanit',Tahoma,'Lato', sans-serif;
+        }
+
+        .myButton {
+            position: fixed;
+            right: 10%;
+            bottom: 0%;
+            z-index: 1000;
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            filter: progid: dximagetransform.microsoft.basicimage(rotation=3);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* upload picture */
+        .avatar-wrapper{
+	        position: relative;
+	        height: 105px;
+	        width: 105px;
+	        margin: 20px auto;
+	        border-radius: 50%;
+	        overflow: hidden;
+	        box-shadow: 1px 1px 15px -5px black;
+	        transition: all .3s ease;
+            &:hover{
+		            transform: scale(1.20);
+		            cursor: pointer;
+                   }
+	        &:hover .profile-pic{
+                opacity: .3;
+	        }
+            .profile-pic{
+                height: 100%;
+		        width: 100%;
+		        transition: all .3s ease;
+                &:after{
+			            font-family: FontAwesome;
+			            /*content: "\f007";*/
+                        content:url("./images/manager128.png");
+			            top: 0; left: -10px;
+			            width: 120%;
+			            height: 100%;
+			            position: absolute;
+			            font-size: 100px;
+			            background: #ecf0f1;
+			            color: #34495e;
+			            text-align: center;
+                       }
+            }
+            .upload-button{
+		        position: absolute;
+		        top: 0; left: 0;
+		        height: 100%;
+		        width: 100%;
+                .fa-arrow-circle-up{
+			                        position: absolute;
+			                        font-size: 127px;
+			                        top: -10px;
+			                        left: 0;
+			                        text-align: center;
+			                        opacity: 0;
+			                        transition: all .3s ease;
+			                        color: #34495e;
+                                   }
+                &:hover .fa-arrow-circle-up{
+                    opacity: .9;
+                }
+            }
+            
+            .profile-pic2 {
+                height: 100%;
+		        width: 100%;
+		        transition: all .3s ease;
+                &:after{
+                        content:url("./images/pdf.png");
+			            top: 0; left: -10px;
+			            width: 120%;
+			            height: 100%;
+			            position: absolute;
+			            background: #ecf0f1;
+			            color: #34495e;
+			            text-align: center;
+                       }
+            }
+
+        }
+
+    </style>
+     <%--PPP_E--%>
+
+    <script src="jquery-3.2.1.js"></script>
+    <script src="css/bootstrap.min.js"></script>
+
+    <%--PP_S--%>
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link href="DataTables-1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="DataTables-1.13.1/js/jquery.dataTables.min.js"></script>
+    <link href="DataTables-1.13.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+    <script src="DataTables-1.13.1/js/dataTables.responsive.min.js"></script>
+    <link href="css/footable.min.css" rel="stylesheet" />
+    <script src="js/date-uk.js"></script>
+    <%--PPP_E--%>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family:'Prompt';
+        }
+        .nav-link img {
+	        border-radius: 50%;
+	        width: 36px;
+	        height: 36px;
+	        margin: -8px 0;
+	        float: left;
+	        margin-right: 10px;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+            <%--<a class="navbar-brand" href="MyWebPage.aspx"><img src="./images/ISD5.png" style="width:80%;height:70%" /></a>--%>
+            <a class="navbar-brand" href="MyWebPage.aspx"><img src="./images/syncing.png" style="width:80%;height:70%" /></a>
+             <a class="navbar-brand" href="#">Supplier Question Answer</a>          
+            &nbsp;&nbsp;&nbsp;<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    
+                    <li class="nav-item dropdown active">
+                        <div id="mPUR" runat="server">
+                        <a class="nav-link dropdown-toggle"" href="#" id="pur" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            SQA
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Supplier.aspx">Supplier Data (RM)</a>
+                            <a class="dropdown-item" href="SetSupplier.aspx">Create Supplier (RM)</a>
+                            
+                            <%--<a class="dropdown-item" href="https://lookerstudio.google.com/reporting/2ca1141d-db2a-42df-b8a5-8f5b2ac82fc9/page/p_jyw8xfjjbd" target="_blank">All PurchasePlus</a>--%>
+                            
+                        </div>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <div id="mSUPPLIER" runat="server">
+                        <a class="nav-link dropdown-toggle"" href="#" id="supplier" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            SUPPLIER
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="KeySupplier.aspx">Supplier Key</a>
+                        </div>
+                        </div>
+                    </li>
+
+                </ul>
+                <div class="dropdown row" id="menuSetup" runat="server">
+                    <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action text-white">
+                        <asp:Image ID="imgProfile" runat="server" ImageUrl="./images/manager.png"/> <asp:Label ID="lblName" runat="server" Text=""></asp:Label> <b class="caret"></b></a>
+                    <div class="dropdown-menu">
+                        <div id="mProfile" runat="server">
+                        <a href="PageUser.aspx" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+                        </div>
+                        <div id="mLOG" runat="server">
+                        <a href="PageLog.aspx" class="dropdown-item"><i class="fa fa-list-alt"></i> Log Data</a>
+                        </div>
+                        <div id="mCreate" runat="server">
+                        <a href="PageUserAdd.aspx" class="dropdown-item"><i class="fa fa-cog"></i> Create User</a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="Logout.aspx" class="dropdown-item"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
+                    </div>
+                </div>
+            </div>            
+        </nav>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">        
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
